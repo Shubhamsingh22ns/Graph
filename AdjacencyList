@@ -18,9 +18,8 @@ int main() {
  vector<pair<int, int>> graph{{0, 1}, {1, 2}, {2, 3}, {3, 1}, {0, 2}};
  
     unordered_map<int, vector<int>>adjacencyList;
-    for(auto it: graph){
-        // int a = graph[i].first, b=graph[i].second;
-        int a = it[0]
+    for(int i=0; i<graph.size(); i++){
+        int a = graph[i].first, b=graph[i].second;
         adjacencyList[a].push_back(b);
         adjacencyList[b].push_back(a);
     }
