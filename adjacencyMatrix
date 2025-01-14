@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void print_graph(const vector<vector<int>>& adj) {
+    for (int i = 0; i < adj.size(); i++) {
+        cout << "Node " << i << " is connected to: ";
+        for (int j = 0; j < adj[i].size(); j++) {
+            if (adj[i][j] == 1) cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    cout << "GRAPH" << endl;
+    vector<pair<int, int>> graph{{0, 1}, {1, 2}, {2, 3}, {3, 1}, {0, 2}};
+    vector<vector<int>> adjacencyMatrix(4, vector<int>(4, 0));
+
+    for (const auto& edge : graph) {
+        int a = edge.first, b = edge.second;
+        adjacencyMatrix[a][b] = 1;
+        adjacencyMatrix[b][a] = 1;
+    }
+
+    print_graph(adjacencyMatrix);
+    return 0;
+}
